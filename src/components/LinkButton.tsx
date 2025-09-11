@@ -17,19 +17,13 @@ export default function LinkButton({ name, icon, url }: LinkButtonProps) {
       <div className="flex items-center space-x-4">
         {/* Icon */}
         <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center">
-          {icon.includes('instagram') || icon.includes('spotify') ? (
-            <Image
-              src={icon}
-              alt={`${name} icon`}
-              width={32}
-              height={32}
-              className="rounded-md"
-            />
-          ) : (
-            <div className="w-8 h-8 bg-gray-300 rounded-md flex items-center justify-center">
-              <span className="text-xs text-gray-600">{name.charAt(0)}</span>
-            </div>
-          )}
+          <Image
+            src={icon}
+            alt={`${name} icon`}
+            width={32}
+            height={32}
+            className="rounded-md"
+          />
         </div>
         
         {/* Platform Name */}

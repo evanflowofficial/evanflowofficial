@@ -5,7 +5,7 @@ const platforms = [
   { 
     name: 'Instagram', 
     icon: '/icons/instagram.png', 
-    url: 'https://instagram.com/evanflowmusic' 
+    url: 'https://instagram.com/evanflowofficial' 
   },
   { 
     name: 'Spotify', 
@@ -45,11 +45,15 @@ export default function Home() {
       <div className="w-full max-w-md mx-auto">
         {/* Profile Section */}
         <div className="text-center mb-8">
-          {/* Profile Picture Placeholder */}
-          <div className="w-24 h-24 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-white shadow-lg">
-            <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-              <span className="text-gray-500 text-xs">Photo</span>
-            </div>
+          {/* Profile Picture */}
+          <div className="w-24 h-24 bg-white rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+            <Image
+              src="/icons/profile_pic.PNG"
+              alt="Evan Flow Profile Picture"
+              width={88}
+              height={88}
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
           
           {/* Artist Name */}
