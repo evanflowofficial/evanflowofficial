@@ -2,10 +2,15 @@ import Image from 'next/image'
 import LinkButton from '@/components/LinkButton'
 
 const platforms = [
-  { 
-    name: 'Instagram', 
-    icon: '/icons/instagram.png', 
-    url: 'https://instagram.com/evanflowmusic' 
+  {
+    name: 'Instagram',
+    icon: '/icons/instagram.png',
+    url: 'https://instagram.com/evanflowmusic'
+  },
+  {
+    name: 'Email',
+    icon: '/icons/email.svg',
+    url: 'mailto:contact@evanflow.com'
   },
   { 
     name: 'Spotify', 
