@@ -70,7 +70,7 @@ export default function Home() {
         {/* Instagram Reel Section */}
         <div className="mb-8">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
-            <h2 className="text-white text-lg font-semibold mb-4 text-center">Latest Reel</h2>
+            <h2 className="text-white text-lg font-semibold mb-4 text-center">OVERSTIMULATED</h2>
             <div className="flex justify-center">
               <blockquote
                 className="instagram-media"
