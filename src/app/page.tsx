@@ -1,46 +1,61 @@
 import Image from 'next/image'
 import LinkButton from '@/components/LinkButton'
 
-const platforms = [
+const linkGroups = [
   {
-    name: 'Instagram',
-    icon: '/icons/instagram.png',
-    url: 'https://instagram.com/evanflowmusic'
+    title: "Best way to reach me!",
+    platforms: [
+      {
+        name: 'Instagram',
+        icon: '/icons/instagram.png',
+        url: 'https://instagram.com/evanflowmusic'
+      },
+      {
+        name: 'Email',
+        icon: '/icons/email.svg',
+        url: 'mailto:evanflowofficial@gmail.com'
+      }
+    ]
   },
   {
-    name: 'Email',
-    icon: '/icons/email.svg',
-    url: 'mailto:evanflowofficial@gmail.com'
+    title: "First Original Song",
+    platforms: [
+      {
+        name: 'Spotify',
+        icon: '/icons/spotify.png',
+        url: 'https://open.spotify.com/artist/15ibQwVmk0M3XUkUPEDdyI'
+      },
+      {
+        name: 'Apple Music',
+        icon: '/icons/apple-music.png',
+        url: 'https://music.apple.com/us/artist/ev-an-flow/1649311774'
+      },
+      {
+        name: 'SoundCloud',
+        icon: '/icons/soundcloud.png',
+        url: 'https://soundcloud.com/ev-an-flow'
+      }
+    ]
   },
-  { 
-    name: 'Spotify', 
-    icon: '/icons/spotify.png', 
-    url: 'https://open.spotify.com/artist/15ibQwVmk0M3XUkUPEDdyI' 
-  },
-  { 
-    name: 'Apple Music', 
-    icon: '/icons/apple-music.png', 
-    url: 'https://music.apple.com/us/artist/ev-an-flow/1649311774' 
-  },
-  { 
-    name: 'SoundCloud', 
-    icon: '/icons/soundcloud.png', 
-    url: 'https://soundcloud.com/ev-an-flow' 
-  },
-  { 
-    name: 'YouTube', 
-    icon: '/icons/youtube.png', 
-    url: 'https://youtube.com/@evanflowofficial?si=hIlvoHLdSYlCeyDb' 
-  },
-  { 
-    name: 'TikTok', 
-    icon: '/icons/tiktok.png', 
-    url: 'https://tiktok.com/@evanflowmusic' 
-  },
-  { 
-    name: 'Substack', 
-    icon: '/icons/substack.png', 
-    url: 'https://evanflow.substack.com' 
+  {
+    title: "Coming Soon 👀",
+    platforms: [
+      {
+        name: 'YouTube',
+        icon: '/icons/youtube.png',
+        url: 'https://youtube.com/@evanflowofficial?si=hIlvoHLdSYlCeyDb'
+      },
+      {
+        name: 'TikTok',
+        icon: '/icons/tiktok.png',
+        url: 'https://tiktok.com/@evanflowmusic'
+      },
+      {
+        name: 'Substack',
+        icon: '/icons/substack.png',
+        url: 'https://evanflow.substack.com'
+      }
+    ]
   }
 ]
 
@@ -160,14 +175,23 @@ export default function Home() {
         </div>
 
         {/* Links Section */}
-        <div className="space-y-4">
-          {platforms.map((platform) => (
-            <LinkButton
-              key={platform.name}
-              name={platform.name}
-              icon={platform.icon}
-              url={platform.url}
-            />
+        <div className="space-y-6">
+          {linkGroups.map((group, groupIndex) => (
+            <div key={groupIndex} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
+              <h3 className="text-white text-lg font-semibold mb-4 text-center">
+                {group.title}
+              </h3>
+              <div className="space-y-3">
+                {group.platforms.map((platform) => (
+                  <LinkButton
+                    key={platform.name}
+                    name={platform.name}
+                    icon={platform.icon}
+                    url={platform.url}
+                  />
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
