@@ -5,27 +5,27 @@ const platforms = [
   { 
     name: 'Instagram', 
     icon: '/icons/instagram.png', 
-    url: 'https://instagram.com/evanflowofficial' 
+    url: 'https://instagram.com/evanflowmusic' 
   },
   { 
     name: 'Spotify', 
     icon: '/icons/spotify.png', 
-    url: 'https://open.spotify.com/artist/evanflow' 
+    url: 'https://open.spotify.com/artist/15ibQwVmk0M3XUkUPEDdyI' 
   },
   { 
     name: 'Apple Music', 
     icon: '/icons/apple-music.png', 
-    url: 'https://music.apple.com/artist/evanflow' 
+    url: 'https://music.apple.com/us/artist/ev-an-flow/1649311774' 
   },
   { 
     name: 'SoundCloud', 
     icon: '/icons/soundcloud.png', 
-    url: 'https://soundcloud.com/evanflow' 
+    url: 'https://soundcloud.com/ev-an-flow' 
   },
   { 
     name: 'YouTube', 
     icon: '/icons/youtube.png', 
-    url: 'https://youtube.com/@evanflow' 
+    url: 'https://youtube.com/@evanflowofficial?si=hIlvoHLdSYlCeyDb' 
   },
   { 
     name: 'TikTok', 
