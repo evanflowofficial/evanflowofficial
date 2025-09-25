@@ -30,7 +30,7 @@ const platforms = [
   { 
     name: 'TikTok', 
     icon: '/icons/tiktok.png', 
-    url: 'https://tiktok.com/@evanflow' 
+    url: 'https://tiktok.com/@evanflowmusic' 
   },
   { 
     name: 'Substack', 
