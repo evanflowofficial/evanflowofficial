@@ -141,6 +141,19 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Divider Section */}
+        <div className="mb-6">
+          <div className="flex items-center justify-center mb-4">
+            <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent flex-1"></div>
+            <div className="px-4">
+              <h3 className="text-white text-xl font-bold text-center">
+                My Links! 👇👇👇
+              </h3>
+            </div>
+            <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent flex-1"></div>
+          </div>
+        </div>
+
         {/* Links Section */}
         <div className="space-y-4">
           {platforms.map((platform) => (
