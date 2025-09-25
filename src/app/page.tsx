@@ -10,7 +10,7 @@ const platforms = [
   {
     name: 'Email',
     icon: '/icons/email.svg',
-    url: 'mailto:contact@evanflow.com'
+    url: 'mailto:evanflowofficial@gmail.com'
   },
   { 
     name: 'Spotify', 
