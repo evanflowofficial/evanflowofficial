@@ -21,7 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         {children}
-        <script async src="//www.instagram.com/embed.js"></script>
       </body>
     </html>
   )
