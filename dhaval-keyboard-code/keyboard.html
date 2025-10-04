@@ -1,0 +1,108 @@
+
+<!-- EvanFlow Keys – drop‑in subpage (local-only SoundFonts) -->
+<section class="ef-wrap" id="evf-keys-root">
+  <header class="ef-header">
+    <div>
+      <h2 style="margin:0;font-weight:800">Play Your Own</h2>
+      <div style="color:var(--muted);font-size:12px">Tap, click, or use your keys. Connect a MIDI controller if you have one.</div>
+    </div>
+    <div class="ef-row" style="margin-top:8px">
+      <button id="ef-audioBtn" class="ef-btn-primary">Start Audio</button>
+      <button id="ef-midiBtn" class="ef-btn-alt">Enable MIDI</button>
+    </div>
+  </header>
+
+  <div class="ef-panel" style="margin-top:16px">
+    <div class="ef-controls">
+      <div>
+        <label for="ef-instrument">Instrument</label>
+        <select id="ef-instrument">
+          <optgroup label="Keyboard & Strings">
+            <option value="piano">Piano</option>
+            <option value="synth">Keyboard / Synthesizer</option>
+            <option value="harpsichord">Harpsichord</option>
+            <option value="accordion">Accordion</option>
+            <option value="guitar_acoustic">Guitar (Acoustic)</option>
+            <option value="guitar_electric">Guitar (Electric)</option>
+            <option value="bass_guitar">Guitar (Bass)</option>
+            <option value="violin">Violin</option>
+            <option value="viola">Viola</option>
+            <option value="cello">Cello</option>
+            <option value="double_bass">Double Bass</option>
+            <option value="harp">Harp</option>
+            <option value="mandolin">Mandolin</option>
+            <option value="ukulele">Ukulele</option>
+            <option value="banjo">Banjo</option>
+            <option value="sitar">Sitar</option>
+          </optgroup>
+          <optgroup label="Percussion">
+            <option value="drumkit">Drum Kit</option>
+            <option value="congas">Congas</option>
+            <option value="bongos">Bongos</option>
+            <option value="djembe">Djembe</option>
+            <option value="cajon">Cajón</option>
+            <option value="tabla">Tabla</option>
+            <option value="tambourine">Tambourine</option>
+            <option value="triangle">Triangle</option>
+            <option value="maracas">Maracas</option>
+            <option value="xylophone">Xylophone</option>
+            <option value="glockenspiel">Glockenspiel</option>
+            <option value="vibraphone">Vibraphone</option>
+            <option value="timpani">Timpani</option>
+          </optgroup>
+          <optgroup label="Brass">
+            <option value="trumpet">Trumpet</option>
+            <option value="trombone">Trombone</option>
+            <option value="tuba">Tuba</option>
+            <option value="french_horn">French Horn</option>
+            <option value="cornet">Cornet</option>
+            <option value="flugelhorn">Flugelhorn</option>
+          </optgroup>
+          <optgroup label="Woodwinds">
+            <option value="flute">Flute</option>
+            <option value="piccolo">Piccolo</option>
+            <option value="clarinet">Clarinet</option>
+            <option value="oboe">Oboe</option>
+            <option value="bassoon">Bassoon</option>
+            <option value="saxophone">Saxophone</option>
+            <option value="recorder">Recorder</option>
+            <option value="harmonica">Harmonica</option>
+          </optgroup>
+        </select>
+      </div>
+      <div>
+        <label for="ef-attack">Attack</label>
+        <input id="ef-attack" type="range" min="0" max="2" step="0.01" value="0.01" />
+      </div>
+      <div>
+        <label for="ef-release">Release</label>
+        <input id="ef-release" type="range" min="0" max="3" step="0.01" value="0.4" />
+      </div>
+      <div>
+        <label for="ef-reverb">Reverb</label>
+        <input id="ef-reverb" type="range" min="0" max="1" step="0.01" value="0.2" />
+      </div>
+      <div>
+        <label for="ef-octave">Octave</label>
+        <input id="ef-octave" type="number" min="-2" max="3" step="1" value="0" />
+      </div>
+      <div>
+        <label>&nbsp;</label>
+        <div class="ef-row">
+          <button id="ef-sustainBtn" class="ef-btn-alt">Sustain</button>
+          <button id="ef-recordBtn" class="ef-btn-rec">Record</button>
+          <button id="ef-downloadBtn" class="ef-btn-alt" disabled>Download</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ef-kbd" id="ef-kbd"></div>
+
+    <div class="ef-footer">
+      <span class="ef-pill"><span class="ef-dot"></span> Keyboard map: Z/S/X/D/C/V/G/B/H/N/J/M and Q/2/W/3/E/R/5/T/6/Y/7/U</span>
+      <span class="ef-pill">Hold Shift for sustain</span>
+      <span class="ef-pill" id="ef-kitMap" style="display:none">Drum Kit map: Z=kick, X=snare, C=closed hat, V=open hat, B=low tom, N=mid tom, M=high tom, Q=crash, W=ride...</span>
+      <div class="ef-tests" id="ef-tests"></div>
+    </div>
+  </div>
+</section>

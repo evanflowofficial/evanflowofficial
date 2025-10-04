@@ -7,6 +7,18 @@ interface InstagramEmbedProps {
   caption?: string
 }
 
+// TypeScript interface for Instagram's window object
+interface InstagramWindow extends Window {
+  instgrm?: {
+    Embeds: {
+      process(): void
+    }
+  }
+}
+
+// Type guard to safely access Instagram API
+const getInstagramWindow = (): InstagramWindow => window as InstagramWindow
+
 export default function InstagramEmbed({ url, caption }: InstagramEmbedProps) {
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
@@ -16,7 +28,7 @@ export default function InstagramEmbed({ url, caption }: InstagramEmbedProps) {
     const loadInstagramEmbed = async () => {
       try {
         // Check if Instagram embed script is already loaded
-        if (!(window as any).instgrm) {
+        if (!getInstagramWindow().instgrm) {
           // Dynamically load Instagram script
           const script = document.createElement('script')
           script.src = '//www.instagram.com/embed.js'
@@ -33,8 +45,9 @@ export default function InstagramEmbed({ url, caption }: InstagramEmbedProps) {
         await new Promise(resolve => setTimeout(resolve, 100))
 
         // Process Instagram embeds
-        if ((window as any).instgrm?.Embeds) {
-          (window as any).instgrm.Embeds.process()
+        const instagramWindow = getInstagramWindow()
+        if (instagramWindow.instgrm?.Embeds) {
+          instagramWindow.instgrm.Embeds.process()
         }
 
         // Set loading to false after a delay to ensure embed is rendered

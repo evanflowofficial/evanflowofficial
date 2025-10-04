@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SoundFont Diagnostics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;padding:20px}
+    code{background:#f3f4f6;padding:2px 6px;border-radius:4px}
+    .ok{color:#059669}.bad{color:#dc2626}
+    table{border-collapse:collapse;width:100%;margin-top:12px}
+    td,th{border:1px solid #e5e7eb;padding:8px;text-align:left}
+  </style>
+</head>
+<body>
+<h1>SoundFont Diagnostics</h1>
+<p>This page helps you verify that instrument files are reachable and not blocked by CSP.</p>
+
+<label>SoundFont base path (absolute or relative): </label>
+<input id="base" value="/soundfonts" style="width:320px">
+<button id="run">Run tests</button>
+
+<table>
+  <thead><tr><th>Instrument</th><th>URL</th><th>Status</th><th>Notes</th></tr></thead>
+  <tbody id="tbody"></tbody>
+</table>
+
+<script>
+const instruments = [
+  "acoustic_grand_piano","violin","trumpet","alto_sax","percussion"
+];
+
+function makeUrl(base, name){ base = base.replace(/\/+$/,''); return `${base}/MusyngKite/${name}-mp3.js`; }
+
+async function probe(url){
+  let status = 'n/a', ok=false, note='';
+  try{
+    const res = await fetch(url, {method:'GET', cache:'no-store'});
+    status = res.status + ' ' + res.statusText;
+    ok = res.ok;
+    if (!ok && res.status===0){ note = 'Blocked by CORS/CSP or mixed content'; }
+  }catch(e){
+    status = 'fetch error';
+    note = String(e && e.message || e);
+  }
+  return {ok, status, note};
+}
+
+async function run(){
+  const base = document.getElementById('base').value || '/soundfonts';
+  const tb = document.getElementById('tbody'); tb.innerHTML='';
+  for (const name of instruments){
+    const url = makeUrl(base, name);
+    const tr = document.createElement('tr'); const td1=document.createElement('td'); const td2=document.createElement('td'); const td3=document.createElement('td'); const td4=document.createElement('td');
+    td1.textContent = name; td2.textContent = url; td3.textContent='…'; td4.textContent='';
+    tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4); tb.appendChild(tr);
+    const r = await probe(url);
+    td3.innerHTML = r.ok ? `<span class="ok">OK</span>` : `<span class="bad">${r.status}</span>`;
+    td4.textContent = r.note;
+  }
+  // CSP quick check
+  const csp = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+  if (csp){
+    const p = document.createElement('p'); p.innerHTML = `<strong>Detected CSP meta:</strong> <code>${csp.content}</code>`; document.body.appendChild(p);
+  }
+}
+
+document.getElementById('run').addEventListener('click', run);
+</script>
+</body>
+</html>

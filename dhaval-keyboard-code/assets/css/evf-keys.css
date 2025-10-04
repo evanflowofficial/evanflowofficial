@@ -1,0 +1,45 @@
+
+:root{
+  --bg: #0a0b0e;
+  --panel: #141722;
+  --accent: #6ee7ff;
+  --accent-2: #a78bfa;
+  --text: #e6e9f2;
+  --muted: #9aa3b2;
+  --danger: #ff6b6b;
+  --ok: #66e39f;
+  --fail: #ff7b7b;
+}
+body { background:#0a0b0e; margin:0; }
+.ef-wrap { max-width: 1100px; margin: 24px auto 48px; padding: 0 16px; color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+.ef-panel { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); backdrop-filter: blur(6px); }
+.ef-controls { display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap:12px; align-items:end; }
+.ef-controls label {font-size:12px; color:var(--muted); display:block; margin-bottom:6px}
+.ef-controls select, .ef-controls input[type="range"], .ef-controls input[type="number"], .ef-controls button { width:100%; background: var(--panel); color: var(--text); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 10px 12px; outline:none; }
+.ef-row { display:flex; gap:10px; flex-wrap:wrap }
+.ef-btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color:#091018; font-weight:700 }
+.ef-btn-alt { background: transparent }
+.ef-btn-rec { background: transparent; border:1px solid rgba(255,255,255,0.1) }
+.ef-btn-rec.active { border-color: var(--danger); box-shadow: 0 0 0 2px rgba(255,0,0,0.25) inset }
+
+.ef-kbd { position: relative; margin-top: 20px; height: 220px; user-select: none; }
+.ef-white-keys, .ef-black-keys { position:absolute; left:0; right:0; bottom:0; display:flex; height:100% }
+.ef-white-keys .ef-key { flex:1; background:linear-gradient(#fff,#f2f2f2); border:1px solid #dcdfe6; border-bottom-width:4px; margin:0 2px; border-radius:0 0 8px 8px; position:relative; box-shadow:inset 0 -6px 12px rgba(0,0,0,0.08) }
+.ef-white-keys .ef-key.active { background:linear-gradient(#d7fff0,#b1ffe0); border-color:#9af7d1 }
+.ef-black-keys { pointer-events:none; padding:0 20px; height:60% }
+.ef-black-keys .ef-spacer { flex:1 }
+.ef-black-keys .ef-key.ef-black { pointer-events:auto; width: 44px; background:linear-gradient(#111827,#0b0f18); border:1px solid #0b0f18; border-bottom-width:4px; margin:0 18px; border-radius:0 0 8px 8px; position:relative; z-index:2; box-shadow:inset 0 -6px 12px rgba(0,0,0,0.45) }
+.ef-black-keys .ef-key.ef-black.active { background:linear-gradient(#203b3a,#0f2523); border-color:#1e3a39 }
+
+.ef-note-label { position:absolute; bottom:8px; left:50%; transform:translateX(-50%); font-size: 11px; color:#4b5563; font-weight:700; }
+
+.ef-footer { margin-top:18px; color:var(--muted); font-size:12px }
+.ef-pill {display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.06); margin-right:8px}
+.ef-dot {width:8px;height:8px;border-radius:50%;background:var(--accent)}
+
+.ef-tests { margin-top: 8px; display:flex; flex-wrap:wrap; gap:8px }
+.ef-test { padding:4px 8px; border-radius:999px; background:rgba(255,255,255,0.06) }
+.ef-pass { color: var(--ok); border:1px solid rgba(102,227,159,0.35) }
+.ef-fail { color: var(--fail); border:1px solid rgba(255,123,123,0.35) }
+
+@media (max-width: 900px){ .ef-controls { grid-template-columns: repeat(2, minmax(0,1fr)); } .ef-black-keys { padding: 0 10px } }
